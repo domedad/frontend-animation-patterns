@@ -1,0 +1,4 @@
+interface:
+  display_name: "前端元素与交互动效方案"
+  short_description: "按场景选择并实现前端元素样式、交互状态与可访问动效方案"
+  default_prompt: "Use $frontend-animation-patterns to choose and implement the right element styles, interaction states, and motion for this interface."
