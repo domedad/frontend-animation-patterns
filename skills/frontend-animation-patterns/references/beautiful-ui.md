@@ -13,7 +13,7 @@ Use Beautiful UI for AI-native product surfaces where the interface must make mo
 
 - Built with Next.js App Router, React, TypeScript, and Tailwind CSS v4.
 - Components are copy-paste primitives. The recommended path is `npx shadcn add https://www.beautifului.dev/r/<slug>.json`; inspect the component registry entry before installing because dependencies vary.
-- Install the shared `app/globals.css` foundation once. It supplies light/dark tokens, Tailwind `@theme` mappings, shadows, keyframes, and `prefers-reduced-motion` fallbacks.
+- Install the shared `app/globals.css` foundation once. It supplies light/dark tokens, Tailwind `@theme` mappings, shadows, keyframes, and `prefers-reduced-motion` fallbacks upstream. Adapt those system-driven fallbacks to the Skill's Default Motion Policy; do not let them disable selected app animations automatically.
 - Some components import shared primitives such as `Button`, `GlideMenu`, `EntityChip`, `ValuePill`, `Shimmer`, or `StreamText`; the registry resolves these dependencies.
 - Some recipes use packages such as `liveline`, `glimm`, or `iconoir-react`. `Sidebar Nav` uses the commercial `@central-icons-react` package unless those icons are replaced.
 - The library is MIT licensed. Preserve the copyright and permission notice when redistributing substantial portions.
@@ -45,7 +45,7 @@ Use Beautiful UI for AI-native product surfaces where the interface must make mo
 | Recommendation Card | Agent proposal with confidence, alternatives, and accept action | Explain the evidence behind confidence, separate “needs review” from “no signal,” and require a deliberate accept action. | [Recommendation Card](https://www.beautifului.dev/#recommendation-card) |
 | Context Cards | Retrieved knowledge or memory chunks with source metadata | Show document type, source identity, excerpt size, and selection/filter state. Never use source-looking badges without resolvable evidence. | [Context Cards](https://www.beautifului.dev/#context-cards) |
 | Diff Table | AI-proposed additions/removals across structured rows | Make changed rows selectable, summarize add/remove counts, and keep “Apply changes” separate from generation. | [Diff Table](https://www.beautifului.dev/#diff-table) |
-| Insight Cards | Paged AI insights paired with a compact live chart and follow-up action | Animate the chart only when it clarifies the selected insight; retain exact values and a static reduced-motion view. | [Insight Cards](https://www.beautifului.dev/#insight-cards) |
+| Insight Cards | Paged AI insights paired with a compact live chart and follow-up action | Animate the chart only when it clarifies the selected insight; retain exact values and a static view when app motion is explicitly off. | [Insight Cards](https://www.beautifului.dev/#insight-cards) |
 
 ## Data, Navigation, and Workflow Surfaces
 

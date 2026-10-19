@@ -216,6 +216,6 @@ Use this file as an index. Open the exact official page before implementation to
 - The catalog is React-oriented and publishes JavaScript/TypeScript plus CSS/Tailwind variants. Match the existing project stack.
 - Dependencies differ per entry and may include GSAP, Motion, Three.js, OGL, or other rendering libraries. Read the exact page before installing anything.
 - Preserve semantic HTML, accessible names, keyboard behavior, and static content. Canvas/WebGL effects must remain decorative.
-- Honor `prefers-reduced-motion`; remove parallax, trails, distortion, rapid loops, and scroll-linked movement while keeping content visible.
+- Follow the Skill's Default Motion Policy rather than system motion settings. Only remove parallax, trails, distortion, loops, and scroll-linked movement when app motion is explicitly off; keep content visible.
 - Budget GPU-heavy backgrounds and cursor effects carefully, pause them offscreen, and test low-power/mobile devices.
 - The repository is distributed under MIT plus the Commons Clause. Review the current terms before redistribution, especially when packaging components as a paid product or service.

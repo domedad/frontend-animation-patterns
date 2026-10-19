@@ -174,7 +174,7 @@ Anatomy: category/search controls, chronological event rows, type and textual st
 - `maxEntries` defaults to `20`, but the reviewed source only applies the cap when inserting **simulated** events. Bound/paginate real incoming data upstream; passing thousands of `events` does not automatically prune or virtualize them. Keep durable audit history in the backend, not this viewport.
 - `onEventReplay` receives the selected event but performs no replay itself. A retry/replay is a real external action: implement authorization, deduplication, confirmation where warranted, and observable failure before enabling it. Do not replay automatically when expanding a payload.
 - Sanitize/redact secrets and personal data in payloads before display/copy. Check Clipboard API success before showing copied feedback; the reviewed trace-copy handler does not await success.
-- The page's accessibility claims are not sufficient proof: the reviewed root uses `role="region"`, not a full feed/log implementation, and this component has no direct reduced-motion branch. Add/verify appropriate semantics, restrained live announcements, reduced-motion behavior, focus, and reading-position stability in the actual app.
+- The page's accessibility claims are not sufficient proof: the reviewed root uses `role="region"`, not a full feed/log implementation, and this component has no direct reduced-motion branch. Add/verify appropriate semantics, restrained live announcements, compliance with the Skill's Default Motion Policy, focus, and reading-position stability in the actual app.
 
 ## Other Source-Specific Decisions
 

@@ -126,7 +126,7 @@ Apply the site's decision framework before selecting a recipe:
 1. Check frequency. Frequent actions should feel nearly instant; reserve choreography for rare moments.
 2. Name the purpose: explain space, confirm input, show state, or soften a change. Remove motion without a clear purpose.
 3. Match physics: ease-out for entrances, ease-in-out for movement, linear for progress, and springs for gestures.
-4. Design reduced motion as a first-class state.
+4. Follow the Skill's Default Motion Policy: animations are enabled regardless of system motion settings; honor an explicit app-level motion-off choice when present.
 
 Shared curve references:
 
@@ -142,7 +142,7 @@ Starting timing ranges:
 - Modal/drawer: 200–500ms.
 - Keep routine interface motion under 300ms unless a large spatial change or deliberate gesture needs more explanation.
 
-For reduced motion, preserve useful opacity, color, and instant state feedback while removing parallax, large travel, repeated scale, and spring overshoot.
+When app motion is explicitly off, preserve useful opacity, color, and instant state feedback while removing parallax, large travel, repeated scale, and spring overshoot. Upstream reduced-motion hooks must not automatically gate the selected animations based on system settings.
 
 ## Implementation, access, and license
 

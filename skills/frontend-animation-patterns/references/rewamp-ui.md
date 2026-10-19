@@ -24,7 +24,7 @@ Use Rewamp UI for expressive React interfaces that need tactile spring motion, k
 
 ## Animated Backgrounds — 20
 
-Use cursor-reactive grid and particle effects for interactive hero surfaces; use ambient gradients, ribbons, dust, snow, caustics, waves, and flares as decorative backdrops only. Canvas/WebGL effects need static imagery or CSS-gradient fallbacks, visibility pausing, device-quality limits, and reduced-motion handling.
+Use cursor-reactive grid and particle effects for interactive hero surfaces; use ambient gradients, ribbons, dust, snow, caustics, waves, and flares as decorative backdrops only. Canvas/WebGL effects need static imagery or CSS-gradient fallbacks, visibility pausing, device-quality limits, and compliance with the Skill's Default Motion Policy.
 
 - [Liquid Cursor Gradient](https://www.rewampui.com/components/liquid-cursor-gradient)
 - [Ascii Matrix Hover](https://www.rewampui.com/components/ascii-matrix-hover)
@@ -62,7 +62,7 @@ Use tactile buttons when the physical interaction reinforces the action. Retain 
 
 ## Text Animations — 9
 
-Use short display copy, hero headings, section labels, or status phrases. Keep real selectable DOM text, preserve the semantic heading, stabilize its layout box, and stop continuous loops under reduced motion.
+Use short display copy, hero headings, section labels, or status phrases. Keep real selectable DOM text, preserve the semantic heading, stabilize its layout box, and stop continuous loops when app motion is explicitly off, not automatically from system settings.
 
 - [Kinetic Reel Text](https://www.rewampui.com/components/kinetic-reel-text)
 - [Split Text Reveal](https://www.rewampui.com/components/split-text-reveal)
@@ -86,7 +86,7 @@ These are expressive theme/state toggles. The animation must reflect the actual 
 
 ## Cursors — 2
 
-Restrict custom cursors to fine-pointer showcase pages. Disable them for touch, coarse pointers, reduced motion, forms, text editing, and accessibility-critical product work. Never hide the native cursor unless the replacement remains precise and visible over every background.
+Restrict custom cursors to fine-pointer showcase pages. Disable them for touch, coarse pointers, explicit app-level motion-off mode, forms, text editing, and accessibility-critical product work. Never hide the native cursor unless the replacement remains precise and visible over every background.
 
 - [Pill Trail Cursor](https://www.rewampui.com/components/pill-trail-cursor)
 - [Halftone Dot Cursor](https://www.rewampui.com/components/halftone-dot-cursor)
@@ -125,7 +125,7 @@ Use lens, sliding-highlight, or decorative sidebar styles for compact navigation
 
 ## Cards — 6
 
-Use card stacks, flip decks, orbital arches, and carousels for browsing small visual collections or editorial showcases. Provide buttons for previous/next/select, preserve reading order, avoid auto-rotation for essential content, and render a simple list or grid on small/reduced-motion devices.
+Use card stacks, flip decks, orbital arches, and carousels for browsing small visual collections or editorial showcases. Provide buttons for previous/next/select, preserve reading order, avoid auto-rotation for essential content, and render a simple list or grid on small screens or when app motion is explicitly off.
 
 - [Diagonal Card Stack](https://www.rewampui.com/components/diagonal-card-stack)
 - [Perspective Flip Deck](https://www.rewampui.com/components/perspective-flip-deck)
@@ -150,7 +150,7 @@ These Three.js companion orbs can communicate ambient AI presence—idle, listen
 - Do not combine a continuous WebGL background, custom cursor, kinetic headline, orbiting cards, and elastic navigation in one viewport.
 - Pause requestAnimationFrame, canvas, and WebGL work while hidden or offscreen. Dispose Three.js renderers, textures, geometries, materials, listeners, and animation frames on unmount.
 - Cap device pixel ratio and reduce particle counts/effect quality on mobile or low-power devices. Avoid using continuous shaders behind forms and dense content.
-- Map `prefers-reduced-motion: reduce` to a static final frame, ordinary text, standard cursor, simple grid/list, or immediate state change.
+- Keep selected animations enabled regardless of system motion settings. Map an explicit app-level motion-off choice, if present, to a static final frame, ordinary text, standard cursor, simple grid/list, or immediate state change.
 - Keep functional states in DOM text and semantics. Motion, color, glow, and an AI orb can support status but never be the sole status channel.
 - Adapt colors, type, radius, and spacing to the existing project. Do not import the whole Rewamp visual language for one component.
 - Verify the current registry entry, dependencies, visible behavior, and reuse rights before copying or invoking `npx rewampui@latest add`.

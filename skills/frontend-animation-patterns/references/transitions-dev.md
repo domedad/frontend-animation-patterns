@@ -56,7 +56,7 @@ Use this source for production UI transitions. The site presents portable CSS an
 
 ## Accessibility and Performance Contract
 
-- Respect `@media (prefers-reduced-motion: reduce)` and retain the functional end state without movement, blur, or scale.
+- Follow the Skill's Default Motion Policy: keep selected animations enabled regardless of system motion settings. If app motion is explicitly off, retain the functional end state without movement, blur, or scale.
 - Keep state in DOM text and ARIA; never depend on animation alone.
 - Use real controls, correct ARIA states, keyboard access, and visible native focus.
 - Prefer compositor-friendly `transform` and `opacity`; use `filter` and `will-change` sparingly.

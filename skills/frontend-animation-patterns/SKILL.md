@@ -1,12 +1,19 @@
 ---
 name: frontend-animation-patterns
 license: MIT for original guidance; see LICENSE and THIRD_PARTY_NOTICES.md for scope.
-description: Select, design, implement, audit, or refine frontend element styling, component appearance, interaction states, and motion using a maintained UI catalog. Use when a user asks how buttons, cards, inputs, progress bars, headings, typography, navigation, dialogs, forms, AI agent interfaces, or page sections should look or behave; requests AI chat/tool surfaces, streaming answers, thinking and tool-call states, approval flows, animated backgrounds, custom cursors, AI companion orbs, component variants, visual hierarchy, polish, hover/focus/press/loading/success/error states, micro-interactions, transitions, animated text, scroll effects, hero effects, 元素样式, 组件样式, 按钮样式, 卡片样式, 表单样式, 标题样式, 进度条样式, AI聊天页面, AI工具页面, 智能体界面, 流式回答, 思考状态, 工具调用, 审批卡, 动态背景, 自定义光标, AI状态球, 页面美化, 前端样式搭配, 动效, 交互动效, 页面动画, 过渡动画, 微交互, 悬停效果, 入场动画, or 滚动动画; or wants a suitable pattern from EasyUI, Beautiful UI, Rewamp UI, beUI, COSS UI, React Bits, Transitions.dev, Magic UI, MicroInteractions UI, or later cataloged frontend UI sources.
+description: Select, style, implement, or refine frontend components, charts, interaction states, and motion from a maintained UI catalog. Use for buttons, cards, inputs, forms, navigation, dialogs, headings, AI chat and agent interfaces, streaming/tool/approval states, chart styling, heatmaps, counters, image comparison, hover/focus/loading feedback, transitions, animated text, scroll and hero effects; or requests for 元素样式、组件样式、页面美化、AI聊天页面、AI工具页面、图表、热力图、数字滚动、图片对比、明暗切换、动效、微交互、入场或滚动动画. Sources include UIArc (Arc UI), EasyUI, Beautiful UI, Rewamp UI, beUI, COSS UI, React Bits, Transitions.dev, Magic UI, MicroInteractions UI, and later cataloged frontend sources.
 ---
 
 # Frontend Element and Interaction Patterns
 
 Choose the element style, state treatment, and motion together from the interface's product intent. Treat the source sites as pattern libraries, not as permission to copy their whole visual theme or decorate every surface.
+
+## Default Motion Policy
+
+- 默认应用开启动效，不读取或跟随操作系统的“减少动态效果”设置。系统动效关闭时，应用中选定的动效仍正常播放。
+- Do not automatically disable, shorten, or replace selected animations because of `prefers-reduced-motion`, `matchMedia`, `useReducedMotion`, or a library's system-driven motion setting. Inspect copied CSS, component hooks, and provider defaults and adapt those gates to this policy within the requested implementation scope.
+- Respect an explicit user request or an existing app-level motion-off control. Do not add a new settings screen or motion toggle unless requested. Do not change operating-system settings or unrelated components.
+- Source notes about reduced-motion support describe upstream capabilities, not a requirement to follow system settings. Apply this policy when adapting their code. Keep keyboard access, readable status text, performance limits, offscreen pausing, and unsupported-browser fallbacks.
 
 ## Workflow
 
@@ -22,6 +29,7 @@ Choose the element style, state treatment, and motion together from the interfac
    - If the user did not name a pattern, propose at most three candidates and recommend one with a one-line reason.
 3. Read [selection-matrix.md](references/selection-matrix.md) before selecting a recipe.
 4. Read the matching source catalog only:
+   - [uiarc.md](references/uiarc.md) for React/CSS Modules product controls, the complete UIArc component/block index, chart selection, activity heatmaps, counters, and image comparison; keep Free/Pro boundaries explicit.
    - [easy-ui.md](references/easy-ui.md) for telemetry feeds, inspectable data, batch operations, recovery timelines, AI/chat surfaces, payment feedback, and tactile React controls.
    - [beautiful-ui.md](references/beautiful-ui.md) for AI-native chat and tool interfaces: streaming, thinking, tool calls, approvals, evidence, task progress, proposed edits, and agent workspaces.
    - [rewamp-ui.md](references/rewamp-ui.md) for high-expression Framer Motion and Three.js backgrounds, text, buttons, navigation, cursors, cards, search, toggles, and ambient AI companion orbs.
@@ -33,9 +41,11 @@ Choose the element style, state treatment, and motion together from the interfac
    - [microinteractions-ui.md](references/microinteractions-ui.md) for React/Tailwind/shadcn control-level motion such as tabs, buttons, inputs, steppers, theme toggles, and compact navigation.
 5. Write the element contract below before implementation. Adapt the pattern to existing tokens and components instead of replacing unrelated structure or styling.
 6. Implement only the selected pattern and its necessary states.
-7. Verify the real interface in a browser, including visual consistency, keyboard use, responsive layout, reduced motion, and entering/exiting states when animated.
+7. Verify the real interface in a browser, including visual consistency, keyboard use, responsive layout, the default motion policy, and entering/exiting states when animated.
 
 ## Selection Rules
+
+- Prefer UIArc for cohesive React chart cards, calendar activity heatmaps, controlled digit rolls, before/after image comparison, and product/data blocks when its CSS Modules and Motion stack fit the project. Read the exact chart's missing-value, scale, date, volume, and license limits before adapting it; do not replace a working chart stack merely for visual similarity.
 
 - Prefer EasyUI for developer/product surfaces needing inspectable telemetry, responsive data details, selection/batch actions, version recovery, API snippets, or AI execution and answer blocks; connect real application state rather than shipping demo simulations.
 - Prefer Beautiful UI for data-rich AI-native interfaces where streaming output, agent steps, tool calls, evidence, approvals, recommendations, proposed changes, and human control must form one coherent product surface.
@@ -66,7 +76,7 @@ For each chosen pattern, state:
 - **Visual states:** default, hover, focus-visible, active/selected, disabled, loading, success, and error as applicable.
 - **Motion:** trigger, purpose, duration/easing, and start/end states, or explicitly none.
 - **Recipe/source:** exact catalog name and official URL.
-- **Fallback:** reduced-motion, missing-media, and unsupported-browser behavior.
+- **Fallback:** missing-media and unsupported-browser behavior; an existing app-level motion-off mode when applicable.
 - **Acceptance:** observable appearance, state behavior, responsive behavior, and interaction path.
 
 ## Implementation Guardrails
@@ -76,7 +86,7 @@ For each chosen pattern, state:
 - Preserve semantic HTML and accessible names. Keep labels, values, error text, and progress meaning available without color or motion.
 - Keep typography readable at the actual breakpoint and content length. Decorative text treatments must degrade to ordinary text.
 - Keep semantics and state in the DOM. Never communicate success, failure, selection, or progress through motion alone.
-- Honor `prefers-reduced-motion: reduce`; remove movement, blur, parallax, rotation, and continuous loops while preserving the final state.
+- Keep selected animations enabled by default regardless of system motion preferences; apply the Default Motion Policy above.
 - Keep keyboard focus visible and ensure hover-only effects have focus-visible or static equivalents.
 - Disable fine-pointer-only effects such as custom cursors and 3D tilt on touch-first devices.
 - Prefer `transform` and `opacity`. Use `filter` sparingly; avoid animating layout properties when a transform can preserve smoothness.
@@ -92,7 +102,7 @@ For each chosen pattern, state:
 - Compare the result with surrounding elements for typography, spacing, radius, borders, elevation, and visual hierarchy.
 - Verify every implemented component state, including disabled, loading, success, and error when applicable.
 - Verify hover, focus, press, enter, exit, interruption, and repeated triggering as applicable.
-- Verify `prefers-reduced-motion` produces an immediate or low-motion equivalent.
+- Verify selected animations remain enabled with system reduced motion both on and off. If an app-level motion-off control exists, test it separately; system preferences must not change that application choice.
 - Check for clipping, unexpected scrollbars, layout shift, blocked pointer events, lost focus, and stale hidden content.
 - Confirm animation cleanup on component unmount and no new console errors.
 

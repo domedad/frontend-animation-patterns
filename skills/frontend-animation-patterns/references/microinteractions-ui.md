@@ -39,7 +39,7 @@ Catalog page: [Button](https://www.microinteractionsui.com/button)
 - [Button7](https://microinteractionsui.com/r/button7.json) — CSS gradient border and hover glow; no Motion dependency in the current recipe.
 - [Button8](https://microinteractionsui.com/r/button8.json) — Apple sign-in counterpart to Button1.
 
-Bind Button5 progress and completion to the real operation state; never run a decorative timer that reports false success. Use continuous Button6 shimmer only for a single high-priority action and disable it for reduced motion.
+Bind Button5 progress and completion to the real operation state; never run a decorative timer that reports false success. Use continuous Button6 shimmer only for a single high-priority action and disable it when app motion is explicitly off, not automatically from system settings.
 
 ## Animated Inputs
 
@@ -57,7 +57,7 @@ Catalog page: [Theme Toggle](https://www.microinteractionsui.com/theme-toggle)
 - [Theme Toggle1](https://microinteractionsui.com/r/theme-toggle1.json) — spring thumb slide plus sun/moon directional swap; uses `next-themes`.
 - [Theme Toggle2](https://microinteractionsui.com/r/theme-toggle2.json) — similar behavior with `lucide-react` icons.
 
-Keep the actual theme state controlled and persistent. Provide an immediate icon/theme change when reduced motion is requested.
+Keep the actual theme state controlled and persistent. Provide an immediate icon/theme change when app motion is explicitly off; otherwise retain the animation regardless of system settings.
 
 ## Steppers
 
@@ -81,4 +81,4 @@ Keep accessible names even when the layout is icon-only. Preserve `aria-pressed`
 
 - The repository and Registry JSON endpoints were publicly accessible at review time, and the README documents shadcn CLI installation.
 - No root `LICENSE` file or `license` package field was observed at review time. Do not infer an open-source reuse license from public access alone; confirm the current repository terms before commercial redistribution or copying substantial implementation code.
-- Treat every recipe as source code copied into the project. Review dependencies, styling assumptions, semantics, reduced-motion behavior, and cleanup instead of installing the full catalog.
+- Treat every recipe as source code copied into the project. Review dependencies, styling assumptions, semantics, compliance with the Skill's Default Motion Policy, and cleanup instead of installing the full catalog.

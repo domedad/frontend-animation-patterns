@@ -18,7 +18,7 @@ Magic UI uses the shadcn/ui installation pattern for React applications. A curre
 - [Icon Cloud](https://magicui.design/docs/components/icon-cloud) — rotating technology/icon cloud.
 - [Lens](https://magicui.design/docs/components/lens) — pointer-based media magnification.
 - [Pointer](https://magicui.design/docs/components/pointer) — custom pointer treatment.
-- [Smooth Cursor](https://magicui.design/docs/components/smooth-cursor) — physics-based custom cursor; intended for fine pointers, with keyboard and reduced-motion alternatives.
+- [Smooth Cursor](https://magicui.design/docs/components/smooth-cursor) — physics-based custom cursor; intended for fine pointers, with keyboard alternatives and a static option when app motion is explicitly off.
 - [Progressive Blur](https://magicui.design/docs/components/progressive-blur) — blur/mask cue at scroll-container edges.
 
 ## Special Effects
@@ -84,5 +84,5 @@ Magic UI uses the shadcn/ui installation pattern for React applications. A curre
 - Treat Magic UI as React-oriented copy-in component code, not a framework-neutral runtime.
 - Confirm the official component page still exists and review its current props before implementation.
 - Keep only the effect needed for the brief; do not install a catalog of unused components.
-- Preserve static readable content for reduced motion and server-rendered/loading states.
+- Preserve static readable content for server-rendered/loading states and when app motion is explicitly off; do not follow system motion settings automatically.
 - Avoid continuous backgrounds, custom cursors, or scroll velocity on dashboards, forms, data tables, and accessibility-critical flows unless explicitly justified.

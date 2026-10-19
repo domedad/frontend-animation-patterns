@@ -17,8 +17,11 @@ This is an independent reference index, not an official product of or an endorse
 | Beautiful UI | https://www.beautifului.dev/ |
 | Rewamp UI | https://www.rewampui.com/components/gradient-reveal-text |
 | EasyUI | https://www.easyui.site/components/activity-feed |
+| UIArc / Arc UI | https://uiarc.dev/llms.txt |
 
 Individual catalog files retain exact detail links, review dates, and source-specific access/reuse notes. These notes are dated research snapshots, not a current blanket permission to redistribute components.
+
+UIArc distinguishes Free implementations (MIT; preserve upstream notices when copied) from Arc Pro (separate commercial terms). Its reference index here includes names, official links, access labels, and original selection guidance only; no Pro source, registry payloads, or copied paid documentation are bundled. See https://uiarc.dev/license before implementing or redistributing an item.
 
 ## Use and Redistribution
 

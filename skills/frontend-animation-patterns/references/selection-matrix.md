@@ -11,7 +11,7 @@ Read this file before choosing a component style or animation. Start from the el
 | Neutral product component needs clear anatomy and accessible states | COSS UI pattern adapted to project tokens | Existing Base UI/Radix/headless primitive | Copying the COSS site theme or replacing an established design system |
 | Hero headline needs an expressive media-filled treatment | React Bits **Masked Heading** | Static gradient/image-clipped text; Magic UI Text Animate | Dense dashboards, forms, long reading text, or unreadable media contrast |
 | Premium headline needs a slow continuous color sweep | Rewamp UI **Gradient Reveal Text** | React Bits Gradient Text; Magic UI Animated Gradient Text | Body copy, several competing gradient headings, or no solid-color fallback |
-| Decorative heading must remain semantic and resilient | Native `h1`/`h2` with static text fallback | Masked Heading with reduced-motion and missing-media fallback | Rendering essential copy only in canvas/video or hiding it from assistive tech |
+| Decorative heading must remain semantic and resilient | Native `h1`/`h2` with static text fallback | Masked Heading with missing-media fallback | Rendering essential copy only in canvas/video or hiding it from assistive tech |
 | Product form needs consistent labels, validation, grouping, and controls | COSS UI **Field / Fieldset / Form** plus the matching input primitive | Existing accessible design-system form components | Styling standalone inputs without error, disabled, and focus states |
 | Searchable choice among many options | COSS UI **Combobox / Autocomplete** | Select for a short fixed list; Command for command/search palettes | A custom dropdown without keyboard navigation |
 | Measured status is not task completion | COSS UI **Meter** | Progress only for completion; textual value | Reporting a score or capacity as task progress |
@@ -36,8 +36,8 @@ Read this file before choosing a component style or animation. Start from the el
 | Branded navigation needs an expressive presentation | React Bits **Pill Nav / Card Nav / Gooey Nav / Staggered Menu** | COSS Tabs/Menu/Toolbar for product UI | Replacing clear product navigation with novelty motion |
 | Hero needs a quiet animated background | React Bits **Aurora / Silk / Threads / Dot Grid / Gradient Waves** | Magic UI grid/light backgrounds | Reducing text contrast or running multiple canvas backgrounds |
 | Hero needs a pointer-reactive technical backdrop | Rewamp UI **Elastic Line Grid / Spotlight Grid / Ripple Grid** | React Bits Dot Grid; static grid with radial hover | Touch-only experiences, blocked clicks, or pointer work running offscreen |
-| Hero needs a cinematic WebGL material or atmosphere | Rewamp UI **Soft Aurora / Water Caustics / Silk Waves / Singularity Flare** | CSS gradient or static image fallback | Dense product screens, uncapped DPR, no renderer cleanup, or no reduced-motion fallback |
-| Showcase needs a high-energy background | React Bits **Hyperspeed / Lightning / Ballpit / Liquid Chrome** | Lower-energy React Bits background | Dense product pages, forms, low-power devices, or no reduced-motion fallback |
+| Hero needs a cinematic WebGL material or atmosphere | Rewamp UI **Soft Aurora / Water Caustics / Silk Waves / Singularity Flare** | CSS gradient or static image fallback | Dense product screens, uncapped DPR, no renderer cleanup, or no unsupported-browser fallback |
+| Showcase needs a high-energy background | React Bits **Hyperspeed / Lightning / Ballpit / Liquid Chrome** | Lower-energy React Bits background | Dense product pages, forms, low-power devices, or no unsupported-browser fallback |
 | Action needs idle, loading, success, and error continuity | beUI **Stateful Button** | MicroInteractions UI Button5; Transitions.dev spinner-to-check | Decorative timers or reporting success before the operation completes |
 | Select or popover should visibly grow from its trigger | beUI **Select Morph / Popover Morph** | Transitions.dev Dropdown menu morph | Losing focus management or making the morph slower than selection |
 | Mobile workflow needs a draggable edge surface | beUI **Bottom Sheet** | COSS Drawer/Sheet; beUI Drawer | Desktop-only assumptions, missing snap semantics, or trapping scroll incorrectly |
@@ -64,6 +64,21 @@ Read this file before choosing a component style or animation. Start from the el
 | AI tool use requires an explicit permission decision | beUI **Tool Approval / Approval Card** | Existing confirmation dialog | Animating past consent, preselecting approval, or hiding scope |
 | AI answer needs inspectable source support | beUI **Citations** | Existing citation list | Decorative source badges without resolvable references |
 
+## Charts and Visual Data
+
+| User need | First choice | Alternatives | Avoid |
+|---|---|---|---|
+| Daily activity or streaks over months/year | UIArc **Activity heatmap** (Free) | Existing calendar heatmap | Treating missing dates as zero without a data contract; confusing this with a category × hour matrix |
+| Inspectable multi-series time trend | UIArc **Line chart** (Free) | Existing chart stack; EasyUI Metric HUD | Missing series values silently rendered as zero, unclear units, or too many points |
+| Long history needs a draggable overview window | UIArc **Brush chart** (Free) | Existing zoomable time-series chart | Unsorted times, negative/log-scale data unsupported by the recipe, or brush state disconnected from filters |
+| One metric across discrete periods | UIArc **Bar chart** (Free) | Existing column/bar chart | Copying a single-series recipe as though it supports every grouped/stacked chart |
+| Part-to-whole composition | UIArc **Donut chart / Waffle chart** (Free) | Existing semantic chart; Bar chart for exact comparisons | Non-positive values discarded silently, unclear denominator, or relying on rounded cell counts as raw data |
+| Exactly two moments need a change comparison | UIArc **Slope chart** (Free) | Existing grouped bar chart | Using it for three or more time points or overcrowding item labels |
+| Many groups need distribution-shape comparison | UIArc **Ridgeline** (Free) | Existing box plot/histogram | Inventing observations from averages or changing domains without explanation |
+| Hierarchical quantities need drilldown | UIArc **Treemap** (Free) | Existing hierarchy table; Sunburst (Pro) with licensed access | Negative leaf values clamped silently, unstable ids, or missing way back up |
+| Real-time, flow, funnel, or rank replay needs advanced data interaction | UIArc **Realtime stream / Sankey flow / Funnel chart / Race bar chart** (Pro) | Existing licensed chart stack; free Line/Bar/Treemap for an appropriate simpler view | Copying Pro source without access or presenting simulated animation as real execution/telemetry |
+| Image edit/redesign needs before-and-after inspection | UIArc **Image compare** (Free) | Existing accessible comparison slider | Different image crops, drag-only operation, or implying the slider processes images |
+
 ## Product UI and State Changes
 
 | User need | First choice | Alternatives | Avoid |
@@ -81,7 +96,7 @@ Read this file before choosing a component style or animation. Start from the el
 | Checkbox/toggle changes | **Checkbox check** / **Toggle** | icon swap | Custom control without native semantics |
 | Metric/value changes | **Number pop-in** or **Spinning counter** | Magic UI Number Ticker; MicroInteractions UI Input2 for user-controlled increments | Animating every refresh in a dense table |
 | Icon changes state | **Icon swap** | success check | Rotating the whole button when only the glyph changes |
-| Input is cleared | **Input clear with dissolve** | immediate clear under reduced motion | Per-character motion in high-frequency forms |
+| Input is cleared | **Input clear with dissolve** | immediate clear when app motion is explicitly off | Per-character motion in high-frequency forms |
 | Page/step navigation | **Page side-by-side** | MicroInteractions UI Stepper1/2 for a React multi-step form; View Transitions API | Losing scroll/focus or faking navigation state |
 | High-consequence action benefits from a deliberate slide gesture | Rewamp UI **Slide To Confirm Button** | Native confirmation dialog plus ordinary button | Using drag as the only keyboard/assistive-tech path or implying consent before completion |
 | Accordion expands | **Accordion** | Card resize | Fixed-duration clipping for long dynamic content |
@@ -101,10 +116,10 @@ Read this file before choosing a component style or animation. Start from the el
 | User need | First choice | Alternatives | Guidance |
 |---|---|---|---|
 | Quiet section/hero entrance | Magic UI **Blur Fade** | Transitions.dev Texts reveal | Use one direction and a small stagger |
-| Rich headline entrance | **Text Animate** | Text Reveal, Dia Text Reveal, Hyper Text | Preserve readable static text for reduced motion |
+| Rich headline entrance | **Text Animate** | Text Reveal, Dia Text Reveal, Hyper Text | Preserve readable text when app motion is explicitly off |
 | Rotating value proposition | **Word Rotate** / **Morphing Text** | Typing Animation | Keep phrases similar in length to limit layout shift |
 | KPI count-up | **Number Ticker** | Transitions.dev Spinning counter | Trigger once in view; render the final number accessibly |
-| Customer logos/testimonials | **Marquee** | Avatar Circles | Pause or simplify for reduced motion; do not hide essential content |
+| Customer logos/testimonials | **Marquee** | Avatar Circles | Pause or simplify when app motion is explicitly off; do not hide essential content |
 | Integration/data-flow diagram | **Animated Beam** | Orbiting Circles, Icon Cloud | Use only when relationships are meaningful |
 | Premium card hover | **Magic Card** / **Glare Hover** | Border Beam, Shine Border, 3D tilt | Provide focus-visible feedback and a static touch state |
 | Branded navigation needs one highly tactile signature | Rewamp UI **Hero Morph / Pill Expand / Liquid Underline Navbar** | React Bits Pill Nav; COSS navigation primitive | Novelty motion that obscures routes, focus, active state, or mobile close behavior |
@@ -129,6 +144,7 @@ Always complete level 1. Then use the lowest additional level that solves the co
 ## Framework Routing
 
 - Plain HTML/CSS/vanilla: favor Transitions.dev recipes and native CSS/View Transitions.
+- React 19 + TypeScript + CSS Modules + Motion: UIArc is a candidate for controls, charts, image comparison, and business blocks; inspect registry files, foundation/global-style impact, data semantics, and Free/Pro access. Tailwind is not required.
 - React + Base UI + Tailwind: COSS UI components are candidates after checking the exact component API and license path.
 - React + Tailwind + Framer Motion + shadcn GitHub registry: EasyUI is a candidate for tactile controls and developer/product blocks; inspect its shared utility targets, actual callback behavior, and per-component accessibility before copying.
 - React/Next + Tailwind + Motion + shadcn registry: beUI components are candidates for complete animated controls, application blocks, and AI agent surfaces.
