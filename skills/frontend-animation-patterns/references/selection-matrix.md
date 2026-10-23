@@ -78,6 +78,13 @@ Read this file before choosing a component style or animation. Start from the el
 | Hierarchical quantities need drilldown | UIArc **Treemap** (Free) | Existing hierarchy table; Sunburst (Pro) with licensed access | Negative leaf values clamped silently, unstable ids, or missing way back up |
 | Real-time, flow, funnel, or rank replay needs advanced data interaction | UIArc **Realtime stream / Sankey flow / Funnel chart / Race bar chart** (Pro) | Existing licensed chart stack; free Line/Bar/Treemap for an appropriate simpler view | Copying Pro source without access or presenting simulated animation as real execution/telemetry |
 | Image edit/redesign needs before-and-after inspection | UIArc **Image compare** (Free) | Existing accessible comparison slider | Different image crops, drag-only operation, or implying the slider processes images |
+| Category × hour/date matrix needs intensity inspection | Sakani UI **HeatmapChart** | Existing accessible matrix chart; UIArc Activity heatmap only for a dated contribution calendar | Unknown cells padded as zero, per-panel color scales compared as equal, or mouse-only tooltips |
+| Existing React/Recharts project needs coordinated chart styling | Sakani UI **Line / Area / Bar / Pie / Donut / Radial / Radar / Funnel / Heatmap** | Existing chart primitives mapped to project tokens | Replacing the chart stack unnecessarily; assuming every wrapper forwards generic Recharts props |
+| Grouped, stacked, horizontal, or signed bars | Sakani UI **BarChart** variants | Existing multi-series bar chart | Using the single-series UIArc Bar recipe for unsupported grouped data or removing negative values |
+| Trend needs area fill, stepped holds, or stacked volumes | Sakani UI **AreaChart** | Sakani LineChart for exact trend comparisons | Smoothed curves implying unobserved values, overlapping many fills, or ambiguous stacked totals |
+| Capacity/target needs rings or a dial | Sakani UI **RadialChart** | UIArc Gauge for one bounded measure | Unstated max, treating data[0].max as independent per-row limits, or confusing capacity with task progress |
+| Comparable profiles need radar styling without a Pro dependency | Sakani UI **RadarChart** | Existing radar; UIArc Radar chart only with Pro access | Mixed units/scales, reordered spokes, or assuming value2 always renders regardless of variant |
+| Nested conversion stages need a free funnel reference | Sakani UI **FunnelChart** | BarChart for non-nested/skip-step flows; licensed UIArc Funnel chart | Confusing first-stage retention with previous-stage conversion or drawing non-nested cohorts as a funnel |
 
 ## Product UI and State Changes
 
@@ -144,6 +151,7 @@ Always complete level 1. Then use the lowest additional level that solves the co
 ## Framework Routing
 
 - Plain HTML/CSS/vanilla: favor Transitions.dev recipes and native CSS/View Transitions.
+- React 19 + an existing Recharts stack or token-driven product design: Sakani UI is a candidate for nine chart families and component/block styles; import both package stylesheets, inspect wrapper contracts, and preserve the existing design system. Matrix heatmaps differ from contribution calendars.
 - React 19 + TypeScript + CSS Modules + Motion: UIArc is a candidate for controls, charts, image comparison, and business blocks; inspect registry files, foundation/global-style impact, data semantics, and Free/Pro access. Tailwind is not required.
 - React + Base UI + Tailwind: COSS UI components are candidates after checking the exact component API and license path.
 - React + Tailwind + Framer Motion + shadcn GitHub registry: EasyUI is a candidate for tactile controls and developer/product blocks; inspect its shared utility targets, actual callback behavior, and per-component accessibility before copying.

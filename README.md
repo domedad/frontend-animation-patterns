@@ -24,7 +24,9 @@ An instruction-only Agent Skill for selecting frontend element styles, interacti
 
 ## 收录范围
 
-当前快照索引 **10 个来源、879 个条目**。这是各来源最近一次收录快照的合计，包含免费和 Pro 参考，不是跨站去重后的设计数，也不是 879 份已安装或逐一运行验证的组件。UIArc 新增 262 项（168 个组件，含 44 个特殊组件，以及 94 个区块），其中 134 项 Free、128 项 Pro；图表栏目包含 21 项，其中数字计数器和数据网格不是独立统计图类型。
+当前快照索引 **11 个来源、960 个条目**。这是各来源最近一次收录快照的合计，包含免费和 Pro 参考，不是跨站去重后的设计数，也不是 960 份已安装或逐一运行验证的组件。UIArc 收录 262 项（168 个组件，含 44 个特殊组件，以及 94 个区块），其中 134 项 Free、128 项 Pro；图表栏目包含 21 项，其中数字计数器和数据网格不是独立统计图类型。
+
+Sakani UI 新增 81 组文档参考，涵盖 9 类图表及完整组件／区块目录；另附官方 manifest 的 123 个组件 API 名称和 42 个区块 API 名称供检索，这些组合子组件、辅助导出和变体不重复计入 960 条参考。
 
 | 来源 | 主要用途 |
 |---|---|
@@ -38,6 +40,7 @@ An instruction-only Agent Skill for selecting frontend element styles, interacti
 | Rewamp UI | 高表现力品牌交互、空间和背景效果 |
 | EasyUI | 日志流、数据详情、批量操作、恢复和 AI 区块 |
 | UIArc / Arc UI | 图表、活动热力图、数字滚动、图片对比、产品控件和业务区块；区分 Free / Pro |
+| Sakani UI | React/Recharts 图表样式、二维矩阵热力图、分组／堆叠／负值柱图、产品组件和区块 |
 
 浏览 [场景选型矩阵](skills/frontend-animation-patterns/references/selection-matrix.md) 和 [来源登记表](skills/frontend-animation-patterns/references/source-registry.md)，再按需读取具体来源。该仓库不打包上述网站的完整文档、组件源码、付费内容或展示站。
 
@@ -83,4 +86,4 @@ $skill-installer 请从 https://github.com/domedad/frontend-animation-patterns
 
 ## 发布验证范围
 
-初次发布检查包含 Skill frontmatter、相对参考链接、当时 9 个来源文件的完整性、隐私/凭据和机器路径筛查，以及从发布仓库下载后的内容一致性。2026-10-19 增补 UIArc 后，来源文件增至 10 个，并单独核对其目录、图表文档、代表性免费 registry、授权和外链。这不等于重新验证每个上游组件的兼容性或所有 Agent 宿主的实际行为。
+初次发布检查包含 Skill frontmatter、相对参考链接、当时 9 个来源文件的完整性、隐私/凭据和机器路径筛查，以及从发布仓库下载后的内容一致性。2026-10-19 增补 UIArc 后，单独核对其目录、图表文档、代表性免费 registry、授权和外链。2026-10-20 本地增补 Sakani UI 后，来源文件增至 11 个，并核对文档目录、API 名称覆盖、图表源码、授权和外链。这不等于重新验证每个上游组件的兼容性或所有 Agent 宿主的实际行为；本地增补需另行推送后才会出现在 GitHub。

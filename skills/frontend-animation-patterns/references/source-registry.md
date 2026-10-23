@@ -6,6 +6,7 @@ Use this file when the user provides another frontend UI, component, style, inte
 
 | Source | Role | Reference | Last reviewed |
 |---|---|---|---|
+| [Sakani UI](https://www.sakaniui.com/llms.txt) | 81 documentation groups (70 component pages, including 9 chart families, + 11 block pages); covers 123 component API names + 42 block API names without counting them again | `sakani-ui.md` | 2026-10-20 |
 | [UIArc / Arc UI](https://uiarc.dev/llms.txt) | 262 indexed entries: 168 components (including 44 special) + 94 blocks; 134 Free, 128 Pro; 21 chart-family entries | `uiarc.md` | 2026-10-19 |
 | [EasyUI](https://www.easyui.site/components/activity-feed) | 108 React/Tailwind/Framer Motion components across feedback, forms, motion, navigation, overlays, buttons, and authentication | `easy-ui.md` | 2026-10-07 |
 | [Rewamp UI](https://www.rewampui.com/components/gradient-reveal-text) | 70 expressive React/Framer Motion/Three.js components across backgrounds, buttons, text, toggles, cursors, navigation, search, sidebars, cards, and AI orbs | `rewamp-ui.md` | 2026-09-23 |
@@ -17,7 +18,7 @@ Use this file when the user provides another frontend UI, component, style, inte
 | [COSS UI](https://coss.com/ui/docs/components/accordion) | 54 accessible, composable React product primitives and element styles | `coss-ui.md` | 2026-08-16 |
 | [React Bits](https://reactbits.dev/get-started/index) | 166 public text animations, general effects, components, and backgrounds | `react-bits.md` | 2026-08-16 |
 
-Current indexed catalog: **879 reference entries across 10 sources** (including Free and restricted/Pro items). Counts represent source entries, not deduplicated concepts; the selection matrix resolves overlap by scenario. Each source count is its own last-reviewed snapshot, not a claim that all sites were refreshed together.
+Current indexed catalog: **960 reference entries across 11 sources** (including Free and restricted/Pro items). Counts represent source entries, not deduplicated concepts; Sakani contributes 81 documentation groups, not its 165 separately indexed API names; the selection matrix resolves overlap by scenario. Each source count is its own last-reviewed snapshot, not a claim that all sites were refreshed together.
 
 ## Update Procedure
 

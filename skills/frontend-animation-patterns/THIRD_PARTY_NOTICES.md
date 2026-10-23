@@ -18,10 +18,13 @@ This is an independent reference index, not an official product of or an endorse
 | Rewamp UI | https://www.rewampui.com/components/gradient-reveal-text |
 | EasyUI | https://www.easyui.site/components/activity-feed |
 | UIArc / Arc UI | https://uiarc.dev/llms.txt |
+| Sakani UI | https://www.sakaniui.com/llms.txt |
 
 Individual catalog files retain exact detail links, review dates, and source-specific access/reuse notes. These notes are dated research snapshots, not a current blanket permission to redistribute components.
 
 UIArc distinguishes Free implementations (MIT; preserve upstream notices when copied) from Arc Pro (separate commercial terms). Its reference index here includes names, official links, access labels, and original selection guidance only; no Pro source, registry payloads, or copied paid documentation are bundled. See https://uiarc.dev/license before implementing or redistributing an item.
+
+Sakani UI's reviewed package and source repository use MIT. If copying implementation code, retain the copyright and permission notice from https://github.com/samzydd/Sakaniui/blob/main/LICENSE and review its dependency notices separately. This index does not bundle its source, package, Figma files, media, or icon collection.
 
 ## Use and Redistribution
 
