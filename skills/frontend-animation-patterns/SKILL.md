@@ -1,7 +1,7 @@
 ---
 name: frontend-animation-patterns
 license: MIT for original guidance; see LICENSE and THIRD_PARTY_NOTICES.md for scope.
-description: Select, style, implement, or refine frontend components, charts, interaction states, and motion from a maintained UI catalog. Use for buttons, cards, inputs, forms, navigation, dialogs, headings, AI chat and agent interfaces, streaming/tool/approval states, chart styling, heatmaps, counters, image comparison, hover/focus/loading feedback, transitions, animated text, scroll and hero effects; or requests for 元素样式、组件样式、页面美化、AI聊天页面、AI工具页面、图表、热力图、数字滚动、图片对比、明暗切换、动效、微交互、入场或滚动动画. Sources include Sakani UI, UIArc (Arc UI), EasyUI, Beautiful UI, Rewamp UI, beUI, COSS UI, React Bits, Transitions.dev, Magic UI, MicroInteractions UI, and later cataloged frontend sources.
+description: Select, style, implement, or refine frontend components, charts, interaction states, and motion from a maintained UI catalog. Use for buttons, cards, inputs, forms, navigation, dialogs, headings, AI chat and agent interfaces, streaming/tool/approval states, chart styling, heatmaps, counters, image comparison, hover/focus/loading feedback, transitions, animated text, scroll and hero effects; or requests for 元素样式、组件样式、页面美化、AI聊天页面、AI工具页面、图表、热力图、数字滚动、图片对比、明暗切换、动效、微交互、入场或滚动动画. Sources include Bklit UI, Sakani UI, UIArc (Arc UI), EasyUI, Beautiful UI, Rewamp UI, beUI, COSS UI, React Bits, Transitions.dev, Magic UI, MicroInteractions UI, and later cataloged frontend sources.
 ---
 
 # Frontend Element and Interaction Patterns
@@ -29,6 +29,7 @@ Choose the element style, state treatment, and motion together from the interfac
    - If the user did not name a pattern, propose at most three candidates and recommend one with a one-line reason.
 3. Read [selection-matrix.md](references/selection-matrix.md) before selecting a recipe.
 4. Read the matching source catalog only:
+   - [bklit-ui.md](references/bklit-ui.md) for composable Visx/Motion charts, area/line treatments, contribution heatmaps, sparklines, radial cards, chart utilities, and the full paginated recipe index.
    - [sakani-ui.md](references/sakani-ui.md) for token-driven React/Recharts chart variants, matrix heatmaps, product surfaces, glass guidance, and the complete Sakani documentation/API-name index.
    - [uiarc.md](references/uiarc.md) for React/CSS Modules product controls, the complete UIArc component/block index, chart selection, activity heatmaps, counters, and image comparison; keep Free/Pro boundaries explicit.
    - [easy-ui.md](references/easy-ui.md) for telemetry feeds, inspectable data, batch operations, recovery timelines, AI/chat surfaces, payment feedback, and tactile React controls.
@@ -45,6 +46,8 @@ Choose the element style, state treatment, and motion together from the interfac
 7. Verify the real interface in a browser, including visual consistency, keyboard use, responsive layout, the default motion policy, and entering/exiting states when animated.
 
 ## Selection Rules
+
+- Prefer Bklit UI when a compatible React project needs composable Visx/Motion charts, contribution calendars, compact sparklines, radial cards, annotation/range layers, or chart-style recipes. Preserve an existing Recharts or other working stack when adapting appearance; Bklit is not a drop-in wrapper. Inspect registry dependencies, real data/state contracts, and unsupported combinations such as projection plus brush zoom.
 
 - Prefer Sakani UI when a compatible React/Recharts product needs consistent chart styling, grouped/stacked/signed bars, radar or funnel references, or a two-dimensional matrix heatmap. Distinguish its supported wrapper props and mostly static chart treatments from UIArc's motion-oriented recipes; inspect data semantics and source/documentation differences.
 

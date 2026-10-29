@@ -68,7 +68,7 @@ Read this file before choosing a component style or animation. Start from the el
 
 | User need | First choice | Alternatives | Avoid |
 |---|---|---|---|
-| Daily activity or streaks over months/year | UIArc **Activity heatmap** (Free) | Existing calendar heatmap | Treating missing dates as zero without a data contract; confusing this with a category × hour matrix |
+| Daily activity or streaks over months/year | UIArc **Activity heatmap** (Free) | Bklit **Heatmap Chart** with Dot calendar / Workweek focus recipes for composable Visx; existing calendar heatmap | Treating missing dates as zero without a data contract; confusing this with a category × hour matrix |
 | Inspectable multi-series time trend | UIArc **Line chart** (Free) | Existing chart stack; EasyUI Metric HUD | Missing series values silently rendered as zero, unclear units, or too many points |
 | Long history needs a draggable overview window | UIArc **Brush chart** (Free) | Existing zoomable time-series chart | Unsorted times, negative/log-scale data unsupported by the recipe, or brush state disconnected from filters |
 | One metric across discrete periods | UIArc **Bar chart** (Free) | Existing column/bar chart | Copying a single-series recipe as though it supports every grouped/stacked chart |
@@ -81,10 +81,19 @@ Read this file before choosing a component style or animation. Start from the el
 | Category × hour/date matrix needs intensity inspection | Sakani UI **HeatmapChart** | Existing accessible matrix chart; UIArc Activity heatmap only for a dated contribution calendar | Unknown cells padded as zero, per-panel color scales compared as equal, or mouse-only tooltips |
 | Existing React/Recharts project needs coordinated chart styling | Sakani UI **Line / Area / Bar / Pie / Donut / Radial / Radar / Funnel / Heatmap** | Existing chart primitives mapped to project tokens | Replacing the chart stack unnecessarily; assuming every wrapper forwards generic Recharts props |
 | Grouped, stacked, horizontal, or signed bars | Sakani UI **BarChart** variants | Existing multi-series bar chart | Using the single-series UIArc Bar recipe for unsupported grouped data or removing negative values |
-| Trend needs area fill, stepped holds, or stacked volumes | Sakani UI **AreaChart** | Sakani LineChart for exact trend comparisons | Smoothed curves implying unobserved values, overlapping many fills, or ambiguous stacked totals |
+| Trend needs area fill, stepped holds, or stacked volumes | Sakani UI **AreaChart** for an existing Recharts stack | Bklit **Area Chart** for a compatible Visx/Motion stack; LineChart for exact trend comparisons | Smoothed curves implying unobserved values, overlapping many fills, or ambiguous stacked totals |
 | Capacity/target needs rings or a dial | Sakani UI **RadialChart** | UIArc Gauge for one bounded measure | Unstated max, treating data[0].max as independent per-row limits, or confusing capacity with task progress |
 | Comparable profiles need radar styling without a Pro dependency | Sakani UI **RadarChart** | Existing radar; UIArc Radar chart only with Pro access | Mixed units/scales, reordered spokes, or assuming value2 always renders regardless of variant |
 | Nested conversion stages need a free funnel reference | Sakani UI **FunnelChart** | BarChart for non-nested/skip-step flows; licensed UIArc Funnel chart | Confusing first-stage retention with previous-stage conversion or drawing non-nested cohorts as a funnel |
+| Existing chart needs a coherent visual treatment without a stack migration | Bklit **Monochrome / Hatched backdrop / Gradient glow** recipes | Existing chart's tokens, grid and fill APIs | Copying Visx components into Recharts or stacking several decorative treatments |
+| Dense KPI/table cells need microcharts and linked values | Bklit **Sparkline / KPI sparklines** | Existing lightweight sparkline | A full responsive chart per cell, index-based sync across mismatched dates, or unlabeled hover dates |
+| Hourly cycle, storage capacity, or seasonal loop needs a radial card | Bklit **Radial Chart** and its three card recipes | Linear chart for precise comparison; Sakani RadialChart for bounded capacity | Confusing cyclic time with completion, unstated max, or silently clipping over-capacity data |
+| Future target/projection must remain distinct from history | Bklit **Projection Line / Forecast projection** | Existing explicitly labeled forecast layer | Presenting heuristic extrapolation as fact, target as actual, or combining Bklit projection with brush zoom |
+| Uncertainty/envelope, fixed target zone, or fitted trend | Bklit **Band / Reference Area / Trend Line** respectively | Existing chart's statistical/annotation layers | Calling every shaded band confidence, mixing per-row bounds with fixed limits, or treating regression as causality |
+| Releases, weekends, or deadlines explain a time series | Bklit **Markers / Weekends / Deadline** | Existing timeline annotation | Decorative fake events, wrong timezone/week start, or hiding annotation meaning behind hover only |
+| A free composable flow or hierarchy chart fits a Visx project | Bklit **Sankey / Sunburst** | UIArc Pro with access; existing licensed chart stack | Treating public preview as license, unbalanced flow totals, or no drilldown return path |
+| Profit/loss must change color around a shared zero | Bklit **Profit/Loss Line** | Existing signed line with accessible labels | Dropping negative values, moving zero independently per series, or color-only meaning |
+| Real telemetry needs a streaming time window | Bklit **Live Line Chart** | Existing streaming chart; UIArc Realtime stream with Pro access | Simulated points presented as live, unbounded history, or leaving streams active after unmount |
 
 ## Product UI and State Changes
 
@@ -151,6 +160,7 @@ Always complete level 1. Then use the lowest additional level that solves the co
 ## Framework Routing
 
 - Plain HTML/CSS/vanilla: favor Transitions.dev recipes and native CSS/View Transitions.
+- React + Visx + Motion + Tailwind 4 + shadcn registry: Bklit is a candidate for composable charts, contribution heatmaps, sparklines and radial cards. Its visual recipes can be adapted to another installed chart stack; inspect copy-in aliases, transitive registry files and state/data contracts first.
 - React 19 + an existing Recharts stack or token-driven product design: Sakani UI is a candidate for nine chart families and component/block styles; import both package stylesheets, inspect wrapper contracts, and preserve the existing design system. Matrix heatmaps differ from contribution calendars.
 - React 19 + TypeScript + CSS Modules + Motion: UIArc is a candidate for controls, charts, image comparison, and business blocks; inspect registry files, foundation/global-style impact, data semantics, and Free/Pro access. Tailwind is not required.
 - React + Base UI + Tailwind: COSS UI components are candidates after checking the exact component API and license path.
